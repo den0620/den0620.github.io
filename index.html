@@ -1,1 +1,39 @@
-Test
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <!-- General Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Attempt into rio with go and wasm" />
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="RIO with GO & WASM" />
+    <meta property="og:description" content="description idk" />
+    <meta property="og:image" content="https://ninefid.selfre.cc/eocchi.png" />
+    <meta property="og:url" content="https://wasm.selfre.cc" />
+    <meta property="og:type" content="website" />
+    <script src="wasm_exec.js"></script>
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+    </script>
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            background: #777777;
+            z-index: 0;
+	    cursor: url(assets/cursor.svg), auto;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
