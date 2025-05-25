@@ -21,27 +21,13 @@
             position: relative;
             width: 100vw;
             height: 100vh;
-            background: linear-gradient(135deg, 
-                #d7afff 0%, 
-                #c299f5 25%, 
-                #a974e8 50%, 
-                #8e4fdb 75%, 
+            background: linear-gradient(135deg,
+                #d7afff 0%,
+                #c299f5 25%,
+                #a974e8 50%,
+                #8e4fdb 75%,
                 #7a3bcf 100%);
             overflow: hidden;
-        }
-
-        .particle-overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(4px 4px at 20% 30%, rgba(255, 255, 255, 0.3), transparent),
-                radial-gradient(4px 4px at 40% 70%, rgba(255, 255, 255, 0.2), transparent),
-                radial-gradient(2px 2px at 90% 40%, rgba(255, 255, 255, 0.4), transparent),
-                radial-gradient(2px 2px at 60% 10%, rgba(255, 255, 255, 0.3), transparent),
-                radial-gradient(4px 4px at 80% 80%, rgba(255, 255, 255, 0.2), transparent);
-            background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 180px 180px;
-            animation: particles-drift 40s linear infinite;
         }
 
         .content-overlay {
@@ -64,21 +50,253 @@
             opacity: 0.9;
         }
 
-        @keyframes particles-drift {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-400px); }
+        #container {
+            position: absolute;
+            width: 100vmax;
+            height: 100vmax;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -40%, 0);
+            z-index: 5;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        #flying-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 6;
+        }
+
+        .flying-particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            opacity: 1;
         }
     </style>
 </head>
 <body>
     <div class="ps3-background">
-        <div class="particle-overlay"></div>
-        
+        <div id="container"></div>
+        <div id="flying-particles"></div>
         <div class="content-overlay">
             <div class="demo-text">
-                Скоро здесь что-то будет
+                Что-то здесь будет
             </div>
         </div>
     </div>
+
+    <!-- Include Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script>
+        /*
+         * RetroArch Menu Shader Pipeline Ribbon
+         * Port for THREE.js
+         * https://github.com/libretro/RetroArch
+         */
+
+        let scene, camera, renderer, ribbon;
+
+        const container = document.querySelector('#container');
+
+        const init = () => {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, 1, 0.1, 10000);
+            camera.position.z = 2;
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            container.appendChild(renderer.domElement);
+
+            ribbon = new THREE.Mesh(
+                new THREE.PlaneGeometry(1, 1, 128, 128),
+                new THREE.ShaderMaterial({
+                    uniforms: {
+                        time: { value: 1.0 },
+                    },
+                    vertexShader: `
+                        varying vec3 vEC;
+                        uniform float time;
+
+                        float iqhash(float n) {
+                          return fract(sin(n) * 43758.5453);
+                        }
+
+                        float noise(vec3 x) {
+                          vec3 p = floor(x);
+                          vec3 f = fract(x);
+                          f = f * f * (3.0 - 2.0 * f);
+                          float n = p.x + p.y * 57.0 + 113.0 * p.z;
+                          return mix(mix(mix(iqhash(n), iqhash(n + 1.0), f.x),
+                                     mix(iqhash(n + 57.0), iqhash(n + 58.0), f.x), f.y),
+                                     mix(mix(iqhash(n + 113.0), iqhash(n + 114.0), f.x),
+                                     mix(iqhash(n + 170.0), iqhash(n + 171.0), f.x), f.y), f.z);
+                        }
+
+                        float xmb_noise2(vec3 x) {
+                          return cos(x.z * 4.0) * cos(x.z + time / 10.0 + x.x);
+                        }
+
+                        void main() {
+                          vec4 pos = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                          vec3 v = vec3(pos.x, 0.0, pos.y);
+                          vec3 v2 = v;
+                          vec3 v3 = v;
+
+                          v.y = xmb_noise2(v2) / 8.0;
+
+                          v3.x -= time / 5.0;
+                          v3.x /= 4.0;
+
+                          v3.z -= time / 10.0;
+                          v3.y -= time / 100.0;
+
+                          v.z -= noise(v3 * 7.0) / 15.0;
+                          v.y -= noise(v3 * 7.0) / 15.0 + cos(v.x * 2.0 - time / 2.0) / 5.0 - 0.3;
+
+                          vEC = v;
+                          gl_Position = vec4(v, 1.0);
+                        }
+                    `,
+                    fragmentShader: `
+                        uniform float time;
+                        varying vec3 vEC;
+
+                        void main()
+                        {
+                           const vec3 up = vec3(0.0, 0.0, 1.0);
+                           vec3 x = dFdx(vEC);
+                           vec3 y = dFdy(vEC);
+                           vec3 normal = normalize(cross(x, y));
+                           float c = 1.0 - dot(normal, up);
+                           c = (1.0 - cos(c * c)) / 3.0;
+                           gl_FragColor = vec4(1.0, 1.0, 1.0, c * 1.5);
+                        }
+                    `,
+                    extensions: {
+                        derivatives: true,
+                        fragDepth: false,
+                        drawBuffers: false,
+                        shaderTextureLOD: false
+                    },
+                    side: THREE.DoubleSide,
+                    transparent: true,
+                    depthTest: false,
+                })
+            );
+
+            scene.add(ribbon);
+
+            resize();
+            window.addEventListener('resize', resize);
+        };
+
+        const resize = () => {
+            const { offsetWidth, offsetHeight } = container;
+
+            renderer.setSize(offsetWidth, offsetHeight);
+            renderer.setPixelRatio(devicePixelRatio);
+
+            camera.aspect = offsetWidth / offsetHeight;
+            camera.updateProjectionMatrix();
+
+            ribbon.scale.set(camera.aspect * 1.55, 0.75, 1);
+        };
+
+        const animate = () => {
+            ribbon.material.uniforms.time.value += 0.01;
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(() => animate());
+        };
+
+        init();
+        animate();
+
+        /*
+         * Flying Particles System
+         */
+        const flyingParticlesContainer = document.querySelector('#flying-particles');
+        const particles = [];
+
+        class FlyingParticle {
+            constructor() {
+                this.element = document.createElement('div');
+                this.element.className = 'flying-particle';
+                flyingParticlesContainer.appendChild(this.element);
+
+                const size = 1 + Math.random();
+                this.element.style.width = `${size}px`;
+                this.element.style.height = `${size}px`;
+
+                this.x = 0;
+                this.y = window.innerHeight / 3 + Math.random() * (window.innerHeight / 3); // Between 1/3 and 2/3
+
+                this.vx = (5 + Math.random() * 10) * 0.5 * 0.5;
+                this.vy = (Math.random() - 0.5) * 5 * 0.5;
+                this.waveAmplitude = Math.random() * 50;
+                this.waveFrequency = Math.random() * 0.05;
+                this.time = Math.random() * 100;
+
+                this.updatePosition();
+            }
+
+            updatePosition() {
+                this.element.style.left = `${this.x}px`;
+                this.element.style.top = `${this.y}px`;
+            }
+
+            update() {
+                this.x += this.vx;
+
+                this.time += 0.1;
+                this.y += this.vy + Math.sin(this.time * this.waveFrequency) * this.waveAmplitude * 0.05;
+
+                this.updatePosition();
+
+                const halfScreenWidth = window.innerWidth / 2;
+                const opacity = Math.max(0, 1 - (this.x / halfScreenWidth));
+                this.element.style.opacity = opacity;
+
+                if (opacity <= 0 || this.y < 0 || this.y > window.innerHeight) {
+                    this.remove();
+                    return false;
+                }
+                return true;
+            }
+
+            remove() {
+                if (this.element.parentNode) {
+                    this.element.parentNode.removeChild(this.element);
+                }
+            }
+        }
+
+        function createParticle() {
+            const particle = new FlyingParticle();
+            particles.push(particle);
+        }
+
+        function animateFlyingParticles() {
+            if (Math.random() < 0.3) {
+                createParticle();
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                if (!particles[i].update()) {
+                    particles.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animateFlyingParticles);
+        }
+
+        animateFlyingParticles();
+    </script>
 </body>
 </html>
+
