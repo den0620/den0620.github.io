@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>my site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono");
+
+      :root {
+        color-scheme: light dark;
+
+        --light-background: white;
+        --light-main: ivory;
+        --light-accent: black;
+        --light-strong: wheat;
+
+        --dark-background: black;
+        --dark-main: saddlebrown;
+        --dark-accent: wheat;
+        --dark-strong: tan;
+      }
+
+      body {
+        background-color: light-dark(var(--light-background), var(--dark-background));
+        min-height: 100vh;
+        display: flex;
+      }
+
+      nav {
+        width: 10vw;
+        height: 100%;
+        padding: 0;
+      }
+
+      main {
+        background-color: light-dark(var(--light-main), var(--dark-main));
+      }
+
+      @media (max-width: 640px) {
+        nav {
+          width: 100%;
+          height: 10vh;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#">example1</a>
+      <a href="#">example2</a>
+      <a href="#">example3</a>
+    </nav>
+
+    <div>
+      <main>
+        <p>some long text example</p>
+        <p>some long text example</p>
+        <p>some long text example</p>
+        <aside>some aside long text example</aside>
+        <p>some long text example</p>
+        <p>some long text example</p>
+        <p>some long text example</p>
+      </main>
+    </div>
+  </body>
+</html>
