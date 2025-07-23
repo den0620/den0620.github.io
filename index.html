@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>ninefid</title>
-    <link rel="icon" type="image/png" href="assets/pfp.png">
-    <link rel="apple-touch-icon" href="assets/pfp.png">
-    <meta property="og:image" content="assets/pfp.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="ninefid" />
-    <meta property="og:description" content="my website" />
+    <link rel="icon" type="image/png" href="index_files/pfp.png">
+    <link rel="apple-touch-icon" href="index_files/pfp.png">
+    <meta property="og:image" content="assets/pfp.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ninefid">
+    <meta property="og:description" content="my website">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="assets/fonts.css" rel="stylesheet">
+    <link href="index_files/fonts.css" rel="stylesheet">
     <style type="text/css">
       :root {
         color-scheme: light dark;
@@ -30,13 +29,13 @@
         --light-10: blueviolet;
 
         --dark-1: white;
-        --dark-2: ivory;
+        --dark-2: saddlebrown;
         --dark-3: orange;
         --dark-4: orangered;
-        --dark-5: saddlebrown;
+        --dark-5: gold;
         --dark-6: black;
         --dark-7: mediumorchid;
-        --dark-8: gold;
+        --dark-8: peru;
         --dark-9: violet;
         --dark-10: blueviolet;
       }
@@ -59,6 +58,7 @@
         height: 100vh;
         background-color: light-dark(var(--light-10), var(--dark-10));
         background-image: url("textures/noise_dark.webp");
+        max-height: 100vh;
       }
 
       main {
@@ -84,13 +84,38 @@
       section img {
         height: auto;
         width: auto;
-        border: solid 0.15rem light-dark(var(--light-6), var(--dark-6));
         image-rendering: pixelated;
       }
 
       section iframe {
         height: 90px;
         width: 230px;
+      }
+
+
+      div ul {
+        list-style-type: none;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        position: sticky;
+        bottom: 0;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      div ul li {
+        background-color: light-dark(var(--light-10), var(--dark-10));
+        border-radius: 50% !important;
+        overflow: hidden;
+        border: solid 0.15rem light-dark(var(--light-6), var(--dark-6));
+        box-shadow: 0.15rem 0.15rem light-dark(var(--light-7), var(--dark-7));
+      }
+      div ul li a img{
+        width: 2.25rem;
+        height: auto;
+        vertical-align: middle;
       }
 
       hr {
@@ -132,19 +157,38 @@
 
     </style>
     <style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style>
+    <style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style>
   </head>
   <body>
     <div>
       <main>
         <section style="background-color: light-dark(var(--light-8), var(--dark-8)); border: dashed 0.20rem light-dark(var(--light-5), var(--dark-5));">
           <div style="margin-right: 1rem; background-color: light-dark(var(--light-3), var(--dark-3)); display:grid; box-shadow: 0.25rem 0.25rem light-dark(var(--light-3), var(--dark-3));">
-            <img src="assets/pfp.png" alt="Profile Picture">
-            <p style="margin: 0; text-align: center; border: dashed 0.15rem black; border-top: none;">ninefid</p>
+            <img src="index_files/pfp.png" alt="Profile Picture" style="border: solid 0.15rem light-dark(var(--light-6), var(--dark-6));">
+            <p style="margin: 0; text-align: center; border: dashed 0.15rem light-dark(var(--light-6), var(--dark-6)); border-top: none;">ninefid</p>
           </div>
-          <div>
-            <p>WIP</p>
-            <p>Some shit about here Some shit about here Some shit about here Some shit about here</p>
-            <p>Some shit about here Some shit about here Some shit about here Some shit about here</p>
+          <div style="width: 100%; height: 100%; justify-content: space-between; display: flex; flex-direction: column;">
+            <div style="position: sticky; top:0;">
+              <p>This website is under active construction</p>
+              <p>Yapping shit here</p>
+            </div>
+            <ul>
+              <li>
+                <a href="https://github.com/den0620">
+                  <img src="assets/icon-github.svg" alt="GitHub">
+                </a>
+              </li>
+              <li>
+                <a href="https://mtn.selfre.cc/@ninefid">
+                  <img src="assets/icon-mastodon.svg" alt="Mastodon">
+                </a>
+              </li>
+              <li>
+                <a href="https://ninefid.t.me">
+                  <img src="assets/icon-telegram.svg" alt="Telegram">
+                </a>
+              </li>
+            </ul>
           </div>
         </section>
         <hr>
@@ -154,12 +198,7 @@
         <section style="background-color: light-dark(var(--light-9), var(--dark-9)); border: dashed 0.20rem light-dark(var(--light-7), var(--dark-7));">
           <div>
             <p style="margin: 0; ">Last played (last.fm):</p>
-            <iframe src="https://quiet-disk-038e.den0620.workers.dev/?user=ninefid&type=widget" 
-              width="200" 
-              height="100" 
-              frameborder="0"
-              style="background:none transparent;"
-              allowtransparency="true"></iframe>
+            <iframe src="https://quiet-disk-038e.den0620.workers.dev/?user=ninefid&type=widget" width="200" height="100" frameborder="0" style="background: none transparent;" allowtransparency="true"></iframe>
           </div>
           <div>
             <p>someshit</p>
@@ -167,15 +206,15 @@
         </section>
         <hr>
         <footer>
-          <p>footer</p>
+          <a href="http://xn--tu9h.sos.al">🧀.sos.al</a>
         </footer>
       </main>
     </div>
     <nav>
       <ul>
-        <li><a href="#">[ << PREV]</a></li>
+        <li><a href="#">[ &lt;&lt; PREV]</a></li>
         <li><a href="#">[WEBRING]</a></li>
-        <li><a href="#">[NEXT >> ]</a></li>
+        <li><a href="#">[NEXT &gt;&gt; ]</a></li>
       </ul>
     </nav>  
   </body>
