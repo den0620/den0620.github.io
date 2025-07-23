@@ -20,14 +20,14 @@
         --light-7: blueviolet;
         --light-8: gold;
 
-        --dark-1: black;
-        --dark-2: saddlebrown;
-        --dark-3: orangered;
-        --dark-4: orange;
-        --dark-5: ivory;
-        --dark-6: white;
-        --dark-7: indigo;
-        --dark-8: darkgoldenrod;
+        --dark-1: white;
+        --dark-2: ivory;
+        --dark-3: orange;
+        --dark-4: orangered;
+        --dark-5: saddlebrown;
+        --dark-6: black;
+        --dark-7: blueviolet;
+        --dark-8: gold;
       }
 
       * {
@@ -48,7 +48,7 @@
 
       main {
         background-color: light-dark(var(--light-2), var(--dark-2));
-        border: solid 2px black;
+        border: solid 2px light-dark(var(--light-4), var(--dark-4));
         box-shadow: 5px 5px light-dark(var(--light-4),
           var(--dark-4)), 7px 3px light-dark(var(--light-6),
           var(--dark-6)), 3px 7px light-dark(var(--light-6),
