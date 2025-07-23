@@ -112,11 +112,17 @@
         overflow: hidden;
         border: solid 0.15rem light-dark(var(--light-6), var(--dark-6));
         box-shadow: 0.15rem 0.15rem light-dark(var(--light-7), var(--dark-7));
+        transition: transform 0.20s ease, box-shadow 0.20s ease;
+      }
+      div ul li:hover {
+        transform: translate(0.15rem, 0.15rem);
+        box-shadow: none;
       }
       div ul li a img{
         width: 2.25rem;
         height: auto;
         vertical-align: middle;
+        image-rendering: auto;
       }
 
       hr {
