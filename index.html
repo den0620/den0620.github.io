@@ -8,7 +8,6 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="ninefid">
     <meta property="og:description" content="my website">
-    <meta name="fediverse:creator" content="@ninefid@mtn.selfre.cc">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -28,17 +27,25 @@
         --light-8: gold;
         --light-9: violet;
         --light-10: blueviolet;
+        --light-11: mediumspringgreen;
+        --light-12: teal;
+        --light-13: skyblue;
+        --light-14: steelblue;
 
         --dark-1: white;
-        --dark-2: #3c3836;
+        --dark-2: #7F7366;
         --dark-3: #cc8400;
         --dark-4: orangered;
-        --dark-5: #7F7C68;
+        --dark-5: sienna;
         --dark-6: #282828;
-        --dark-7: indigo;
-        --dark-8: #99947A;
-        --dark-9: purple;
+        --dark-7: purple;
+        --dark-8: #A6823E;
+        --dark-9: mediumorchid;
         --dark-10: #6518ac;
+        --dark-11: #739140;
+        --dark-12: darkolivegreen;
+        --dark-13: cadetblue;
+        --dark-14: #325e82;
       }
 
       * {
@@ -72,7 +79,6 @@
       }
 
       main section {
-        flex: 1;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -126,6 +132,7 @@
       hr {
         border: none;
         border-top: 0.20rem dotted light-dark(var(--light-6), var(--dark-6));
+        margin: 0;
       }
 
       aside {
@@ -199,8 +206,15 @@
           </div>
         </section>
         <hr>
-        <p>more shit</p>
-        <aside><p>cool aside</p></aside>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch;">
+          <section style="background-color: light-dark(var(--light-11), var(--dark-11)); border: dashed 0.20rem light-dark(var(--light-12), var(--dark-12)); width: auto; flex-grow: 1">
+            <p>more very long shit</p>
+            <aside><p>cool aside</p></aside>
+          </section>
+          <section style="background-color: light-dark(var(--light-13), var(--dark-13)); border: dashed 0.20rem light-dark(var(--light-14), var(--dark-14)); width: auto; flex-grow: 1">
+            <p>more shit</p>
+          </section>
+        </div>
         <hr>
         <section style="background-color: light-dark(var(--light-9), var(--dark-9)); border: dashed 0.20rem light-dark(var(--light-7), var(--dark-7));">
           <div>
