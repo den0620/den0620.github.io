@@ -17,8 +17,10 @@
         --light-4: orangered;
         --light-5: saddlebrown;
         --light-6: black;
-        --light-7: blueviolet;
+        --light-7: mediumorchid;
         --light-8: gold;
+        --light-9: violet;
+        --light-10: blueviolet;
 
         --dark-1: white;
         --dark-2: ivory;
@@ -26,8 +28,10 @@
         --dark-4: orangered;
         --dark-5: saddlebrown;
         --dark-6: black;
-        --dark-7: blueviolet;
+        --dark-7: mediumorchid;
         --dark-8: gold;
+        --dark-9: violet;
+        --dark-10: blueviolet;
       }
 
       * {
@@ -46,19 +50,17 @@
         flex-direction: column;
         overflow: hidden;
         height: 100vh;
-        background-color: light-dark(var(--light-7), var(--dark-7));
-        background-image: url("textures/45-degree-fabric-light.png");
+        background-color: light-dark(var(--light-10), var(--dark-10));
+        background-image: url("textures/noise_dark.webp");
       }
 
       main {
         background-color: light-dark(var(--light-2), var(--dark-2));
-        border: solid 2px light-dark(var(--light-6), var(--dark-6));
-        box-shadow: 5px 5px light-dark(var(--light-4),
-          var(--dark-4)), 7px 3px light-dark(var(--light-6),
-          var(--dark-6)), 3px 7px light-dark(var(--light-6),
-          var(--dark-6)), 7px 7px light-dark(var(--light-6), var(--dark-6));
-
-        background-image: url("textures/noise_light.webp");
+        border: solid 0.25rem light-dark(var(--light-6), var(--dark-6));
+        box-shadow: 0.50rem 0.50rem light-dark(var(--light-4), var(--dark-4)),
+                    0.75rem 0.25rem light-dark(var(--light-6), var(--dark-6)),
+                    0.25rem 0.75rem light-dark(var(--light-6), var(--dark-6)),
+                    0.75rem 0.75rem light-dark(var(--light-6), var(--dark-6));
         max-width: 600px;
         margin: 0 auto;
       }
@@ -68,19 +70,15 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: calc(100% - 20px);
-        background-color: light-dark(var(--light-8), var(--dark-8));
-        box-shadow: inset 0 2px 5px rgba(255,255,255,0.2);
-        border: dashed 2px light-dark(var(--light-5), var(--dark-5));
-        padding: 20px;
-        margin: 20px;
+        padding: 1rem;
+        margin: 1rem;
       }
 
       section img {
-        height: 100%;
-        max-height: 10vh;
+        height: auto;
         width: auto;
-        border: solid 2px light-dark(var(--light-6), var(--dark-6));
+        border: solid 0.15rem light-dark(var(--light-6), var(--dark-6));
+        image-rendering: pixelated;
       }
 
       section iframe {
@@ -90,7 +88,7 @@
 
       hr {
         border: none;
-        border-top: 2px dotted light-dark(var(--light-6), var(--dark-6));
+        border-top: 0.20rem dotted light-dark(var(--light-6), var(--dark-6));
       }
 
       aside {
@@ -100,7 +98,6 @@
       nav {
         position: sticky;
         bottom: 0;
-        // transform: rotate(1.5deg);
         width: 100%;
         height: 10vh;
         max-width: 600px;
@@ -122,36 +119,48 @@
         text-decoration: none;
         padding: 10px;
       }
+      nav a:hover {
+        color: light-dark(var(--light-3), var(--dark-3));
+      }
 
     </style>
   <style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
   <body>
     <div>
       <main>
-        <section>
-          <img src="assets/pfp.png" alt="Profile Picture">
-          <p>WIP Some shit about here Some shit about here Some shit about here Some shit about here</p>
+        <section style="background-color: light-dark(var(--light-8), var(--dark-8)); border: dashed 0.20rem light-dark(var(--light-5), var(--dark-5));">
+          <div style="margin-right: 1rem; background-color: light-dark(var(--light-3), var(--dark-3)); display:grid; box-shadow: 0.25rem 0.25rem light-dark(var(--light-3), var(--dark-3));">
+            <img src="assets/pfp.png" alt="Profile Picture">
+            <p style="margin: 0; text-align: center; border: dashed 0.15rem black; border-top: none;">ninefid</p>
+          </div>
+          <div>
+            <p>WIP</p>
+            <p>Some shit about here Some shit about here Some shit about here Some shit about here</p>
+            <p>Some shit about here Some shit about here Some shit about here Some shit about here</p>
+          </div>
         </section>
-        <p>minimal bio</p>
         <hr>
         <p>more shit</p>
         <aside><p>cool aside</p></aside>
-        <p>more shit</p>
-        <aside><p>cool aside</p></aside>
         <hr>
-        <section>
-          <p>Last played:</p>
-          <iframe src="https://quiet-disk-038e.den0620.workers.dev/?user=ninefid&type=widget" 
-            width="200" 
-            height="100" 
-            frameborder="0"
-            style="background: transparent;"
-            allowtransparency="true"></iframe>
-
+        <section style="background-color: light-dark(var(--light-9), var(--dark-9)); border: dashed 0.20rem light-dark(var(--light-7), var(--dark-7));">
+          <div>
+            <p style="margin: 0; ">Last played (last.fm):</p>
+            <iframe src="https://quiet-disk-038e.den0620.workers.dev/?user=ninefid&type=widget" 
+              width="200" 
+              height="100" 
+              frameborder="0"
+              style="background:none transparent;"
+              allowtransparency="true"></iframe>
+          </div>
+          <div>
+            <p>someshit</p>
+          </div>
         </section>
         <hr>
-        <p>some long text example</p>
-        <p>some long text example</p>
+        <footer>
+          <p>footer</p>
+        </footer>
       </main>
     </div>
     <nav>
