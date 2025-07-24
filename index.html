@@ -18,39 +18,48 @@
       :root {
         color-scheme: light dark;
 
-        --light-1: white;
-        --light-2: ivory;
-        --light-3: orange;
-        --light-4: orangered;
-        --light-5: saddlebrown;
-        --light-6: black;
-        --light-7: mediumorchid;
-        --light-8: gold;
-        --light-9: violet;
-        --light-10: blueviolet;
-        --light-11: mediumspringgreen;
-        --light-12: teal;
-        --light-13: limegreen;
-        --light-14: skyblue;
-        --light-15: steelblue;
-        --light-16: deepskyblue;
+        --LightMain1: ivory;
+        --LightMain2: #282828;
+        --LightMain3: Black;
+        --LightMain4: blueviolet;
 
-        --dark-1: white;
-        --dark-2: #7F7366;
-        --dark-3: #cc8400;
-        --dark-4: orangered;
-        --dark-5: sienna;
-        --dark-6: #282828;
-        --dark-7: purple;
-        --dark-8: #A6823E;
-        --dark-9: mediumorchid;
-        --dark-10: indigo;
-        --dark-11: olivedrab;
-        --dark-12: darkolivegreen;
-        --dark-13: forestgreen;
-        --dark-14: cadetblue;
-        --dark-15: #325e82;
-        --dark-16: steelblue;
+        --LightYellow1: gold;
+        --LightYellow2: sienna;
+        --LightYellow3: orange;
+
+        --LightGreen1: mediumspringgreen;
+        --LightGreen2: teal;
+        --LightGreen3: limegreen;
+
+        --LightBlue1: skyblue;
+        --LightBlue2: steelblue;
+        --LightBlue3: deepskyblue;
+
+        --LightPink1: violet;
+        --LightPink2: mediumorchid;
+        --LightPink3: palevioletred;
+
+
+        --DarkMain1: #7F7366;
+        --DarkMain2: #282828;
+        --DarkMain3: ivory;
+        --DarkMain4: indigo;
+
+        --DarkYellow1: #A6823E;
+        --DarkYellow2: sienna;
+        --DarkYellow3: #cc8400;
+
+        --DarkGreen1: olivedrab;
+        --DarkGreen2: darkolivegreen;
+        --DarkGreen3: forestgreen;
+
+        --DarkBlue1: cadetblue;
+        --DarkBlue2: #325e82;
+        --DarkBlue3: steelblue;
+
+        --DarkPink1: mediumorchid;
+        --DarkPink2: purple;
+        --DarkPink3: palevioletred;
       }
 
       * {
@@ -60,25 +69,25 @@
       }
     
       p {
-        color: light-dark(var(--light-6), var(--light-1));
+        color: light-dark(var(--LightMain3), var(--DarkMain3));
       }
 
       body {
         margin: 1rem;
         display: flex;
         flex-direction: column;
-        background-color: light-dark(var(--light-10), var(--dark-10));
+        background-color: light-dark(var(--LightMain4), var(--DarkMain4));
         background-image: url("textures/noise_dark.webp");
         max-height: 100vh;
       }
 
       main {
-        background-color: light-dark(var(--light-2), var(--dark-2));
-        border: solid 0.25rem light-dark(var(--light-6), var(--dark-6));
-        box-shadow: 0.50rem 0.50rem light-dark(var(--light-4), var(--dark-4)),
-                    0.75rem 0.25rem light-dark(var(--light-6), var(--dark-6)),
-                    0.25rem 0.75rem light-dark(var(--light-6), var(--dark-6)),
-                    0.75rem 0.75rem light-dark(var(--light-6), var(--dark-6));
+        background-color: light-dark(var(--LightMain1), var(--DarkMain1));
+        border: solid 0.25rem light-dark(var(--LightMain2), var(--DarkMain2));
+        box-shadow: 0.50rem 0.50rem orangered,
+                    0.75rem 0.25rem light-dark(var(--LightMain2), var(--DarkMain2)),
+                    0.25rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2)),
+                    0.75rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2));
         max-width: 600px;
         margin: 0 auto;
       }
@@ -111,11 +120,11 @@
         margin-bottom: 0;
       }
       div ul li {
-        background-color: light-dark(var(--light-10), var(--dark-10));
+        background-color: light-dark(var(--LightMain4), var(--DarkMain4));
         border-radius: 50% !important;
         overflow: hidden;
-        border: solid 0.15rem light-dark(var(--light-6), var(--dark-6));
-        box-shadow: 0.15rem 0.15rem light-dark(var(--light-7), var(--dark-7));
+        border: solid 0.15rem light-dark(var(--LightMain2), var(--DarkMain2));
+        box-shadow: 0.15rem 0.15rem light-dark(var(--LightPink2), var(--DarkPink2));
         transition: transform 0.20s ease, box-shadow 0.20s ease;
       }
       div ul li:hover {
@@ -131,7 +140,7 @@
 
       hr {
         border: none;
-        border-top: 0.20rem dotted light-dark(var(--light-6), var(--dark-6));
+        border-top: 0.20rem dotted light-dark(var(--LightMain2), var(--DarkMain2));
         margin: 0;
       }
 
@@ -159,14 +168,14 @@
       }
 
       nav a {
-        color: light-dark(var(--light-8), var(--dark-8));
-        background-color: light-dark(var(--light-6), var(--dark-6));
-        border: solid 2px black;
+        color: light-dark(var(--LightYellow1), var(--DarkYellow1));
+        background-color: light-dark(var(--LightMain2), var(--DarkMain2));
+        border: solid 2px light-dark(var(--LightMain2), var(--DarkMain2));
         text-decoration: none;
         padding: 10px;
       }
       nav a:hover {
-        color: light-dark(var(--light-3), var(--dark-3));
+        color: orangered;
       }
 
     </style>
@@ -176,10 +185,10 @@
   <body>
     <div>
       <main>
-        <section style="background-color: light-dark(var(--light-8), var(--dark-8)); border: dashed 0.20rem light-dark(var(--light-5), var(--dark-5));">
-          <div style="margin-right: 1rem; background-color: light-dark(var(--light-3), var(--dark-3)); display:grid; box-shadow: 0.25rem 0.25rem light-dark(var(--light-3), var(--dark-3));">
-            <img src="assets/pfp.png" alt="Profile Picture" style="border: solid 0.15rem light-dark(var(--light-6), var(--dark-6));">
-            <p style="margin: 0; text-align: center; border: dashed 0.15rem light-dark(var(--light-6), var(--dark-6)); border-top: none;">ninefid</p>
+        <section style="background-color: light-dark(var(--LightYellow1), var(--DarkYellow1)); border: dashed 0.20rem light-dark(var(--LightYellow2), var(--DarkYellow2));">
+          <div style="margin-right: 1rem; background-color: light-dark(var(--LightYellow3), var(--DarkYellow3)); display:grid; box-shadow: 0.25rem 0.25rem light-dark(var(--LightYellow3), var(--DarkYellow3));">
+            <img src="assets/pfp.png" alt="Profile Picture" style="border: solid 0.15rem light-dark(var(--LightMain2), var(--DarkMain2));">
+            <p style="margin: 0; text-align: center; border: dashed 0.15rem light-dark(var(--LightMain2), var(--DarkMain2)); border-top: none;">ninefid</p>
           </div>
           <div style="width: 100%; height: 100%; justify-content: space-between; display: flex; flex-direction: column;">
             <div>
@@ -217,18 +226,18 @@
         </section>
         <hr>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch;">
-          <section style="background-color: light-dark(var(--light-11), var(--dark-11)); border: dashed 0.20rem light-dark(var(--light-12), var(--dark-12)); width: auto; flex-grow: 1">
-            <p style="background-color: light-dark(var(--light-13), var(--dark-13));">more very long shit</p>
+          <section style="background-color: light-dark(var(--LightGreen1), var(--DarkGreen1)); border: dashed 0.20rem light-dark(var(--LightGreen2), var(--DarkGreen2)); width: auto; flex-grow: 1">
+            <p style="background-color: light-dark(var(--LightGreen3), var(--DarkGreen3));">more very long shit</p>
             <aside><p>cool aside</p></aside>
           </section>
-          <section style="background-color: light-dark(var(--light-14), var(--dark-14)); border: dashed 0.20rem light-dark(var(--light-15), var(--dark-15)); width: auto; flex-grow: 1">
-            <p style="background-color: light-dark(var(--light-16), var(--dark-16));">more shit</p>
+          <section style="background-color: light-dark(var(--LightBlue1), var(--DarkBlue1)); border: dashed 0.20rem light-dark(var(--LightBlue2), var(--DarkBlue2)); width: auto; flex-grow: 1">
+            <p style="background-color: light-dark(var(--LightBlue3), var(--DarkBlue3));">more shit</p>
           </section>
         </div>
         <hr>
-        <section style="background-color: light-dark(var(--light-9), var(--dark-9)); border: dashed 0.20rem light-dark(var(--light-7), var(--dark-7));">
+        <section style="background-color: light-dark(var(--LightPink1), var(--DarkPink1)); border: dashed 0.20rem light-dark(var(--LightPink2), var(--DarkPink2));">
           <div>
-            <p style="margin: 0; ">Last played (last.fm):</p>
+            <p style="margin: 0; background-color: light-dark(var(--LightPink3), var(--DarkPink3));">Last played (last.fm):</p>
             <iframe src="https://quiet-disk-038e.den0620.workers.dev/?user=ninefid&type=widget" frameborder="0" scrolling="no" style="width: 100%; height: 5rem; overflow: hidden; background: none transparent;" allowtransparency="true"></iframe>
           </div>
           <div>
