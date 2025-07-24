@@ -88,7 +88,7 @@
                     0.75rem 0.25rem light-dark(var(--LightMain2), var(--DarkMain2)),
                     0.25rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2)),
                     0.75rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2));
-        max-width: 600px;
+        max-width: 40rem;
         margin: 0 auto;
       }
 
@@ -148,14 +148,32 @@
         text-align: right;
       }
 
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      footer a {
+        transition: all 0.15s ease;
+      }
+      footer a:hover {
+        transform: scale(1.15, 1.15);
+      }
+
+      footer img {
+        vertical-align: middle;
+        image-rendering: pixelated;
+        min-width: 0;
+      }
+
       nav {
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
-        width: 100vw;
-        height: 10vh;
-        max-width: 600px;
+        max-width: 40rem;
         margin: 0 auto;
       }
       
@@ -179,8 +197,6 @@
       }
 
     </style>
-    <style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style>
-    <style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style>
   </head>
   <body>
     <div>
@@ -238,7 +254,7 @@
         <section style="background-color: light-dark(var(--LightPink1), var(--DarkPink1)); border: dashed 0.20rem light-dark(var(--LightPink2), var(--DarkPink2));">
           <div>
             <p style="margin: 0; background-color: light-dark(var(--LightPink3), var(--DarkPink3));">Last played (last.fm):</p>
-            <iframe src="https://quiet-disk-038e.den0620.workers.dev/?user=ninefid&type=widget" frameborder="0" scrolling="no" style="width: 100%; height: 5rem; overflow: hidden; background: none transparent;" allowtransparency="true"></iframe>
+            <iframe src="https://quiet-disk-038e.den0620.workers.dev/?user=ninefid&amp;type=widget" frameborder="0" scrolling="no" style="width: 100%; height: 5rem; overflow: hidden; background: none transparent;" allowtransparency="true"></iframe>
           </div>
           <div>
             <p>someshit</p>
@@ -246,7 +262,17 @@
         </section>
         <hr>
         <footer>
-          <a href="http://xn--tu9h.sos.al">🧀.sos.al</a>
+          <img src="assets/antipixel/madeon_linux.gif">
+          <img src="assets/antipixel/any-browser.png">
+          <img src="assets/antipixel/parental.gif">
+          <img src="assets/antipixel/zero-javascript.gif">
+          <img src="assets/antipixel/sun_microsystems.gif">
+
+          <a href="https://ublockorigin.com/"><img src="assets/antipixel/ublock.png"></a>
+          <a href="https://www.radiohead.com/library/"><img src="assets/antipixel/radiohead.png"></a>
+          <a href="http://xn--tu9h.sos.al"><img src="assets/antipixel/ninefidukto.png"></a>
+          <a href="https://deusex.fandom.com"><img src="assets/antipixel/deusex.png"></a>
+          <a href="https://ffmpeg.org/"><img src="assets/antipixel/ffmpeg.gif"></a>
         </footer>
       </main>
     </div>
