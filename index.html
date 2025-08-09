@@ -7,196 +7,209 @@
     <meta property="og:image" content="assets/pfp.png">
     <meta property="og:type" content="website">
     <meta property="og:title" content="ninefid">
-    <meta property="og:description" content="This 'ere is my calling 𝑤𝑒𝑏card">
+    <meta property="og:description" content="This here is my calling 𝑤𝑒𝑏card">
     <meta name="fediverse:creator" content="@ninefid@mtn.selfre.cc">
     
+    <link rel="preload" as="image" href="assets/icon-github.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="assets/icon-mastodon.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="assets/icon-telegram.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="assets/icon-steam.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="assets/icon-matrix.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="assets/fonts.css" rel="stylesheet">
     <style type="text/css">
-      :root {
-        color-scheme: light dark;
+:root {
+  color-scheme: light dark;
 
-        --LightMain1: ivory;
-        --LightMain2: #282828;
-        --LightMain3: black;
-        --LightMain4: blueviolet;
+  --LightMain1: ivory;
+  --LightMain2: #282828;
+  --LightMain3: black;
+  --LightMain4: blueviolet;
 
-        --LightYellow1: gold;
-        --LightYellow2: sienna;
-        --LightYellow3: orange;
+  --LightYellow1: gold;
+  --LightYellow2: sienna;
+  --LightYellow3: orange;
 
-        --LightGreen1: mediumspringgreen;
-        --LightGreen2: teal;
-        --LightGreen3: limegreen;
+  --LightGreen1: mediumspringgreen;
+  --LightGreen2: teal;
+  --LightGreen3: limegreen;
 
-        --LightBlue1: skyblue;
-        --LightBlue2: steelblue;
-        --LightBlue3: deepskyblue;
+  --LightBlue1: skyblue;
+  --LightBlue2: steelblue;
+  --LightBlue3: deepskyblue;
 
-        --LightPink1: violet;
-        --LightPink2: mediumorchid;
-        --LightPink3: palevioletred;
-
-
-        --DarkMain1: #7F7366;
-        --DarkMain2: black;
-        --DarkMain3: ivory;
-        --DarkMain4: indigo;
-
-        --DarkYellow1: #A6823E;
-        --DarkYellow2: sienna;
-        --DarkYellow3: #cc8400;
-
-        --DarkGreen1: olivedrab;
-        --DarkGreen2: darkolivegreen;
-        --DarkGreen3: forestgreen;
-
-        --DarkBlue1: cadetblue;
-        --DarkBlue2: #325e82;
-        --DarkBlue3: steelblue;
-
-        --DarkPink1: mediumorchid;
-        --DarkPink2: purple;
-        --DarkPink3: palevioletred;
-      }
-
-      * {
-        font-family: "Ubuntu Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
-      }
-    
-      p {
-        color: light-dark(var(--LightMain3), var(--DarkMain3));
-        margin-top: 0.40rem;
-        margin-bottom: 0.40rem;
-      }
-
-      body {
-        margin: 1rem;
-        display: flex;
-        flex-direction: column;
-        background-color: light-dark(var(--LightMain4), var(--DarkMain4));
-        background-image: url("textures/noise_dark.webp");
-        max-height: 100vh;
-      }
-
-      main {
-        background-color: light-dark(var(--LightMain1), var(--DarkMain1));
-        border: solid 0.25rem light-dark(var(--LightMain2), var(--DarkMain2));
-        box-shadow: 0.50rem 0.50rem orangered,
-                    0.75rem 0.25rem light-dark(var(--LightMain2), var(--DarkMain2)),
-                    0.25rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2)),
-                    0.75rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2));
-        max-width: 40rem;
-        margin: 0 auto;
-        margin-bottom: 10vh;
-      }
-
-      main section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-        margin: 1rem;
-      }
-
-      section img {
-        height: auto;
-        width: auto;
-        image-rendering: pixelated;
-        max-width: 20vw; 
-      }
-
-      div ul {
-        list-style-type: none;
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        position: sticky;
-        bottom: 0;
-        padding-left: 0;
-        margin-top: 0.50rem;
-        margin-bottom: 0;
-      }
-      div ul li {
-        background-color: light-dark(var(--LightMain4), var(--DarkMain4));
-        border-radius: 50% !important;
-        overflow: hidden;
-        border: solid 0.15rem light-dark(var(--LightMain2), var(--DarkMain2));
-        box-shadow: 0.15rem 0.15rem light-dark(var(--LightPink2), var(--DarkPink2));
-        transition: transform 0.20s ease, box-shadow 0.20s ease;
-      }
-      div ul li:hover {
-        transform: translate(0.15rem, 0.15rem);
-        box-shadow: none;
-      }
-      div ul li a img{
-        width: 2.25rem;
-        height: auto;
-        vertical-align: middle;
-        image-rendering: auto;
-      }
-
-      hr {
-        border: none;
-        border-top: 0.20rem dotted light-dark(var(--LightMain2), var(--DarkMain2));
-        margin: 0;
-      }
+  --LightPink1: violet;
+  --LightPink2: mediumorchid;
+  --LightPink3: palevioletred;
 
 
+  --DarkMain1: #7F7366;
+  --DarkMain2: black;
+  --DarkMain3: ivory;
+  --DarkMain4: indigo;
+
+  --DarkYellow1: #A6823E;
+  --DarkYellow2: sienna;
+  --DarkYellow3: #cc8400;
+
+  --DarkGreen1: olivedrab;
+  --DarkGreen2: darkolivegreen;
+  --DarkGreen3: forestgreen;
+
+  --DarkBlue1: cadetblue;
+  --DarkBlue2: #325e82;
+  --DarkBlue3: steelblue;
+
+  --DarkPink1: mediumorchid;
+  --DarkPink2: purple;
+  --DarkPink3: palevioletred;
+}
+
+* {
+  font-family: "Ubuntu Mono", system-ui, -apple-system, "Segoe UI", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+   
+p {
+  color: light-dark(var(--LightMain3), var(--DarkMain3));
+  margin-top: 0.40rem;
+  margin-bottom: 0.40rem;
+}
+
+body {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: light-dark(var(--LightMain4), var(--DarkMain4));
+  /*background-image: url("textures/noise_dark.webp");*/
+  max-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.7;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cfilter id='n' filterRes='16 16'%3E%3CfeTurbulence type='turbulence' baseFrequency='2.6' numOctaves='1' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 1 1 0 0 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
+}
+
+main {
+  background-color: light-dark(var(--LightMain1), var(--DarkMain1));
+  border: solid 0.25rem light-dark(var(--LightMain2), var(--DarkMain2));
+  box-shadow: 0.50rem 0.50rem orangered,
+              0.75rem 0.25rem light-dark(var(--LightMain2), var(--DarkMain2)),
+              0.25rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2)),
+              0.75rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2));
+  max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom: 10vh;
+}
+
+main section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+section img {
+  height: auto;
+  width: auto;
+  image-rendering: pixelated;
+  max-width: 20vw; 
+}
+
+div ul {
+  list-style-type: none;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  position: sticky;
+  bottom: 0;
+  padding-left: 0;
+  margin-top: 0.50rem;
+  margin-bottom: 0;
+}
+div ul li {
+  background-color: light-dark(var(--LightMain4), var(--DarkMain4));
+  border-radius: 50% !important;
+  overflow: hidden;
+  border: solid 0.15rem light-dark(var(--LightMain2), var(--DarkMain2));
+  box-shadow: 0.15rem 0.15rem light-dark(var(--LightPink2), var(--DarkPink2));
+  transition: transform 0.20s ease, box-shadow 0.20s ease;
+}
+div ul li:hover {
+  transform: translate(0.15rem, 0.15rem);
+  box-shadow: none;
+}
+div ul li a img{
+  width: 2.25rem;
+  height: auto;
+  vertical-align: middle;
+  image-rendering: auto;
+}
+
+hr {
+  border: none;
+  border-top: 0.20rem dotted light-dark(var(--LightMain2), var(--DarkMain2));
+  margin: 0;
+}
 
 
 
-      footer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        overflow: hidden;
-      }
 
-      footer a {
-        transition: all 0.15s ease;
-      }
-      footer a:hover {
-        filter: brightness(0.8);
-      }
 
-      footer img {
-        vertical-align: middle;
-        image-rendering: pixelated;
-        min-width: 0;
-      }
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+}
 
-      nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        max-width: 40rem;
-        margin: 0 auto;
-      }
+footer a {
+  transition: all 0.15s ease;
+}
+footer a:hover {
+  filter: brightness(0.8);
+}
+
+footer img {
+  vertical-align: middle;
+  image-rendering: pixelated;
+  min-width: 0;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 40rem;
+  margin: 0 auto;
+}
       
-      nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        padding: 10px;
-        padding-bottom: 17px;
-      }
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  padding-bottom: 17px;
+}
 
-      nav a {
-        color: light-dark(var(--LightYellow1), var(--DarkYellow1));
-        background-color: light-dark(var(--LightMain2), var(--DarkMain2));
-        border: solid 2px light-dark(var(--LightMain2), var(--DarkMain2));
-        text-decoration: none;
-        padding: 10px;
-      }
-      nav a:hover {
-        color: orangered;
-      }
+nav a {
+  color: light-dark(var(--LightYellow1), var(--DarkYellow1));
+  background-color: light-dark(var(--LightMain2), var(--DarkMain2));
+  border: solid 2px light-dark(var(--LightMain2), var(--DarkMain2));
+  text-decoration: none;
+  padding: 10px;
+}
+nav a:hover {
+  color: orangered;
+}
 
     </style>
   </head>
