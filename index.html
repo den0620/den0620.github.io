@@ -73,6 +73,7 @@
 }
    
 p {
+  color: var(--LightMain3);
   color: light-dark(var(--LightMain3), var(--DarkMain3));
   margin-top: 0.40rem;
   margin-bottom: 0.40rem;
@@ -82,8 +83,8 @@ body {
   margin: 1rem;
   display: flex;
   flex-direction: column;
+  background-color: var(--LightMain4);
   background-color: light-dark(var(--LightMain4), var(--DarkMain4));
-  /*background-image: url("textures/noise_dark.webp");*/
   max-height: 100vh;
 }
 body::before {
@@ -99,6 +100,8 @@ body::before {
 }
 
 main {
+  background-color: var(--LightMain1);
+  border: solid 0.25rem var(--LightMain2);
   background-color: light-dark(var(--LightMain1), var(--DarkMain1));
   border: solid 0.25rem light-dark(var(--LightMain2), var(--DarkMain2));
   box-shadow: 0.50rem 0.50rem orangered,
@@ -137,6 +140,8 @@ div ul {
   margin-bottom: 0;
 }
 div ul li {
+  background-color: var(--LightMain4);
+  border: solid 0.15rem var(--LightMain2);
   background-color: light-dark(var(--LightMain4), var(--DarkMain4));
   border-radius: 50% !important;
   overflow: hidden;
@@ -157,19 +162,18 @@ div ul li a img{
 
 hr {
   border: none;
+  border-top: 0.20rem dotted var(--LightMain2);
   border-top: 0.20rem dotted light-dark(var(--LightMain2), var(--DarkMain2));
   margin: 0;
 }
-
-
-
-
 
 footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   overflow: hidden;
+  gap: 0.5rem;
+  padding: 1rem;
 }
 
 footer a {
@@ -203,6 +207,9 @@ nav ul {
 }
 
 nav a {
+  color: var(--LightYellow1);
+  background-color: var(--LightMain2);
+  border: solid 2px var(--LightMain2);
   color: light-dark(var(--LightYellow1), var(--DarkYellow1));
   background-color: light-dark(var(--LightMain2), var(--DarkMain2));
   border: solid 2px light-dark(var(--LightMain2), var(--DarkMain2));
@@ -286,7 +293,7 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
                 </tr>
                 <tr>
                   <td>Language</td>
-		  <td>🇷🇺 / 🇬🇧</td>
+		              <td>🇷🇺 / 🇬🇧</td>
                 </tr>
                 <tr>
                   <td>Pronouns</td>
@@ -323,39 +330,50 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
             </ul>
           </div>
         </section>
-        <a href="https://listenbrainz.org/user/ninefid/">
-          <img 
-            src="https://muzicwidget.ninefid.uk.to/" 
-            alt="ListenBrainz Widget" 
-            style="width: 100%; height: auto;" 
-          />
-        </a>
+        
+        <object data="https://musicwidget.ninefid.uk.to/?user=ninefid" type="image/svg+xml" width="100%" height="auto" border="0">
+          <img src="https://musicwidget.ninefid.uk.to/?user=ninefid" alt="Now Playing" />
+        </object>
+        
         <hr>
         <div style="padding: 0.5rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch;">
           <section style="margin: 0.5rem; background-color: light-dark(var(--LightGreen1), var(--DarkGreen1)); border: dashed 0.20rem light-dark(var(--LightGreen2), var(--DarkGreen2)); width: auto; flex-grow: 1;">
-            <p style="background-color: light-dark(var(--LightGreen3), var(--DarkGreen3));">advancements //TODO</p>
-            <p>ugractf 23-24 : <a href="https://o.ugractf.ru/ugractf-23-24-school-results.pdf">School 6th</a></p>
-            <p>ugractf 24-25 : <a href="https://o.ugractf.ru/ugractf-24-25-school-results.pdf">School 7th</a></p>
-
-
+            <div style="width: 100%;">
+              <p style="margin: 0; background-color: light-dark(var(--LightGreen3), var(--DarkGreen3));">ADVANCEMENTS</p>
+              <p><strong>CTF (personal):</strong></p>
+              <p>ugractf 23-24 : <a href="https://o.ugractf.ru/ugractf-23-24-school-results.pdf">School 6th</a></p>
+              <p>ugractf 24-25 : <a href="https://o.ugractf.ru/ugractf-24-25-school-results.pdf">School 7th</a></p>
+              <p style="margin-top: 1rem;"><strong>CTF (team):</strong></p>
+              <a href="https://aquariumn.github.io/">Forel</a>
+              <p style="margin-top: 1rem;"><strong>Skills:</strong></p>
+              <p>Deployment</p>
+              <p>Go, Bash, C</p>
+            </div>
           </section>
           <section style="margin: 0.5rem; background-color: light-dark(var(--LightBlue1), var(--DarkBlue1)); border: dashed 0.20rem light-dark(var(--LightBlue2), var(--DarkBlue2)); width: auto; flex-grow: 1">
-            <p style="background-color: light-dark(var(--LightBlue3), var(--DarkBlue3));">info //TODO</p>
-            <p>i may be stupid</p>
-
-
+            <div style="width: 100%;">
+              <p style="margin: 0; background-color: light-dark(var(--LightBlue3), var(--DarkBlue3));">INFO</p>
+              <p><strong>Machine:</strong></p>
+              <p>Maining x86-64-v4</p>
+              <p>EOS + Niri + Sway</p>
+              <p style="margin-top: 1rem;"><strong>Facts:</strong></p>
+              <p>Fav Album: Conventional Weapons</p>
+              <p>Fav Arch: PowerPC</p>
+              <p>Fav Drink: Red Bull 16 Fl Oz</p>
+            </div>
           </section>
         </div>
         <hr>
         <section style="background-color: light-dark(var(--LightPink1), var(--DarkPink1)); border: dashed 0.20rem light-dark(var(--LightPink2), var(--DarkPink2));">
           <div style="width: 100%;">
-            <p style="margin: 0; background-color: light-dark(var(--LightPink3), var(--DarkPink3));">occupation //TODO</p>
-            <p>2022-2025 : <a href="https://lyceum.urfu.ru/">UrFU SESC</a></p>
-            <p>2025-now : <a href="https://itmo.ru/">ITMO University</a></p>
+            <p style="margin: 0; background-color: light-dark(var(--LightPink3), var(--DarkPink3));">OCCUPATION</p>
+            <p>2022-2025 : <a href="https://lyceum.urfu.ru/">UrFU SESC</a> - IT focused course (High School)</p>
+            <p>2025-now : <a href="https://itmo.ru/">ITMO University</a> - SIT (Faculty)</p>
           </div>
         </section>
         <hr>
         <footer>
+          <p>This website is still unfinished</p>
         </footer>
       </main>
     </div>
