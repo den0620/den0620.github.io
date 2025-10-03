@@ -150,7 +150,7 @@ function generateSvg(data) {
        <text x="36" y="40" text-anchor="middle" fill="#aaaeab" font-size="10">No Art</text>`;
 
   return `
-    <svg viewBox="0 0 450 72" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg viewBox="0 0 450 72" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color: blueviolet;">
       <defs>
         <style>
           .container { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
@@ -162,7 +162,8 @@ function generateSvg(data) {
         </style>
       </defs>
       <g class="container">
-        <rect x="0" y="0" width="450" height="72" fill="blueviolet"/>
+        <rect x="0" y="0" width="100%" height="100%" fill="blueviolet"/>
+
         
         <a href="${trackLink}" target="_blank">
           ${imageElement}
@@ -188,7 +189,7 @@ function generateSvg(data) {
 function generateErrorSvg(message) {
   const safeMessage = escapeXml(truncateText(message, 40));
   return `
-    <svg viewBox="0 0 450 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 450 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background-color: blueviolet;">
       <defs>
         <style>
           .container { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; }
