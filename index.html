@@ -127,6 +127,15 @@ section img {
   image-rendering: pixelated;
   max-width: 20vw; 
 }
+section div div div img {
+  height: 1.8rem;
+  width: auto;
+  padding: 0.1rem;
+  image-rendering: auto;
+}
+td {
+  padding: 0;
+}
 
 tr td a {
   color: LightSteelBlue;
@@ -369,6 +378,10 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
                   <td>Prog. langs</td>
                   <td>Go / C</td>
                 </tr>
+                  <tr>
+                    <td>Age</td>
+                    <td>In my late 10s</td>
+                  </tr>
               </table>
 
             </div>
@@ -376,27 +389,34 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
           <section style="margin: 0.5rem; background-color: light-dark(var(--LightBlue1), var(--DarkBlue1)); border: dashed 0.20rem light-dark(var(--LightBlue2), var(--DarkBlue2)); width: auto; flex-grow: 1">
             <div style="width: 100%; height: 100%;">
 
-              <center><p style="margin: 0; background-color: light-dark(var(--LightBlue3), var(--DarkBlue3));">INFO</p></center>
+              <center><p style="margin: 0; background-color: light-dark(var(--LightBlue3), var(--DarkBlue3));">INTERESTS</p></center>
 
-              <table style="width: 100%;">
-                <tr>
-                  <td>Fav Album</td>
-                  <td>Conventional Weapons</td>
-                </tr>
-                <tr>
-                  <td>Fav Series</td>
-                  <td>Steins;Gate</td>
-                </tr>
-                <tr>
-                  <td>Fav Drink</td>
-                  <td>Red Bull 16 Fl Oz</td>
-                </tr>
-                <tr>
-                  <td>Age</td>
-                  <td>In my late 10s</td>
-                </tr>
-              </table>
-
+              <div style="display: flex; flex-direction: row;">
+                <table style="width: 100%;">
+                  <tr>
+                    <td>Fav Album</td>
+                    <td>CW #1-5</td>
+                  </tr>
+                  <tr>
+                    <td>Fav Series</td>
+                    <td>Steins;Gate</td>
+                  </tr>
+                  <tr>
+                    <td>Fav Game</td>
+                    <td>Deus Ex</td>
+                  </tr>
+                </table>
+                <div style="display: grid;">
+                  <a href="https://en.wikipedia.org/wiki/Conventional_Weapons">
+                    <img src="assets/cw.png" />
+                  </a>
+                  <a href="https://en.wikipedia.org/wiki/Steins;Gate">
+                    <img src="assets/sg.png" />
+                  </a>
+                  <a href="https://en.wikipedia.org/wiki/Deus_Ex_(video_game)">
+                    <img src="assets/dx.png" />
+                  </a>
+                </div>
             </div>
           </section>
         </div>
@@ -408,12 +428,14 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
 
             <table style="width: 100%">
               <tr>
-                <td>2022-2025</td>
-                <td><a href="https://lyceum.urfu.ru/">UrFU SESC</a> - IT course (High School)</td>
+                <td>2022 - 2025</td>
+                <td><a href="https://lyceum.urfu.ru/">UrFU SESC</a></td>
+                <td>IT course (High School)</td>
               </tr>
               <tr>
-                <td>2025-now</td>
-                <td><a href="https://itmo.ru/">ITMO University</a> - SIT (Faculty)</td>
+                <td>2025 - now</td>
+                <td><a href="https://itmo.ru/">ITMO University</a></td>
+                <td>SIT (Faculty)</td>
               </tr>
             </table>
 
@@ -427,11 +449,11 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
                 <td>x86-64-v4 / CC 8.6</td>
               </tr>
               <tr>
-                <td>Operating</td>
+                <td>Software</td>
                 <td>EOS + Niri + Sway (utils)</td>
               </tr>
               <tr>
-                <td>Hardware</td>
+                <td>Chassis</td>
                 <td>Optimus Vivobook</td>
               </tr>
             </table>
@@ -440,7 +462,7 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
         </section>
         <hr>
         <footer>
-          <p>This website is in polishing</p>
+          <p>This website is still in polishing</p>
         </footer>
       </main>
     </div>
