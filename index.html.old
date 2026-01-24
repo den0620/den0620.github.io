@@ -70,7 +70,6 @@
   font-family: "Josefin Sans";
   font-weight: normal;
   font-style: normal;
-  box-sizing: border-box;
 }
    
 p {
@@ -86,17 +85,18 @@ body {
   flex-direction: column;
   background-color: var(--LightMain4);
   background-color: light-dark(var(--LightMain4), var(--DarkMain4));
-  min-height: 100vh;
+  max-height: 100vh;
 }
-
 body::before {
   content: "";
   position: fixed; inset: 0;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.15;
-  background-image: radial-gradient(black 0.20rem, transparent 0);
-  background-size: 0.5rem 0.5rem; /* Tiny pixel grid */
+  opacity: 0.7;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cfilter id='n' filterRes='16 16'%3E%3CfeTurbulence type='turbulence' baseFrequency='2.6' numOctaves='1' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 1 1 0 0 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
 }
 
 main {
@@ -110,8 +110,7 @@ main {
               0.75rem 0.75rem light-dark(var(--LightMain2), var(--DarkMain2));
   max-width: 40rem;
   margin: 0 auto;
-  margin-bottom: 5vh;
-  position: relative;
+  margin-bottom: 10vh;
 }
 
 main section {
@@ -120,30 +119,6 @@ main section {
   align-items: center;
   padding: 1rem;
   margin: 1rem;
-  position: relative; 
-  z-index: 1;
-  overflow: hidden; 
-}
-
-.pattern-grad::before, .pattern-hat::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    opacity: 0.15; 
-    background-repeat: repeat;
-    pointer-events: none;
-    filter: grayscale(100%) contrast(150%);
-    
-    background-size: 3.5rem 3.5rem; 
-}
-
-.pattern-grad::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ctext x='50' y='50' font-size='55' text-anchor='middle' dy='.35em' transform='rotate(-30 50 50)'%3E🏆%3C/text%3E%3C/svg%3E");
-}
-
-.pattern-hat::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ctext x='50' y='50' font-size='55' text-anchor='middle' dy='.35em' transform='rotate(-30 50 50)'%3E🎩%3C/text%3E%3C/svg%3E");
 }
 
 section img {
@@ -167,8 +142,7 @@ tr td a {
   color: light-dark(DarkSlateBlue, LightSteelBlue);
 }
 
-/* Social Icons List */
-.social-list {
+div ul {
   list-style-type: none;
   display: flex !important;
   flex-direction: row !important;
@@ -180,7 +154,7 @@ tr td a {
   margin-bottom: 0;
   gap: 0.25rem;
 }
-.social-list li {
+div ul li {
   background-color: var(--LightMain4);
   border: solid 0.15rem var(--LightMain2);
   background-color: light-dark(var(--LightMain4), var(--DarkMain4));
@@ -190,11 +164,11 @@ tr td a {
   box-shadow: 0.15rem 0.15rem light-dark(var(--LightPink2), var(--DarkPink2));
   transition: transform 0.20s ease, box-shadow 0.20s ease;
 }
-.social-list li:hover {
+div ul li:hover {
   transform: translate(0.15rem, 0.15rem);
   box-shadow: none;
 }
-.social-list li a img{
+div ul li a img{
   max-width: 2.25rem;
   min-width: 1.50rem;
   width: 100%;
@@ -212,11 +186,11 @@ hr {
 
 footer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   overflow: hidden;
-  gap: 1rem;
-  padding: 1.5rem 1rem;
+  gap: 0.5rem;
+  padding: 1rem;
 }
 
 footer a {
@@ -226,46 +200,43 @@ footer a:hover {
   filter: brightness(0.8);
 }
 
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-}
-.badges img {
-  width: 7rem; 
-  height: auto;
+footer img {
+  vertical-align: middle;
   image-rendering: pixelated;
-  filter: grayscale(100%) contrast(1.1);
-  opacity: 0.7;
-  transition: filter 0.2s, opacity 0.2s;
-  border: 0.0625rem solid light-dark(var(--LightMain2), var(--DarkMain2)); /* 1px border */
-}
-.badges img:hover {
-  filter: grayscale(0%) contrast(1);
-  opacity: 1;
+  min-width: 0;
 }
 
-.webring-section {
-    background-color: light-dark(var(--LightMain2), var(--DarkMain2)); 
-    border: dashed 0.20rem light-dark(var(--LightYellow1), var(--DarkYellow1));
-    justify-content: center; 
-    gap: 1.5rem;
-    padding: 0.5rem;
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+      
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  padding-bottom: 17px;
 }
 
-.webring-section a {
-    color: light-dark(var(--LightYellow1), var(--DarkYellow1));
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 0.25rem 0.5rem;
-    border: 0.125rem solid transparent;
+nav a {
+  color: var(--LightYellow1);
+  background-color: var(--LightMain2);
+  border: solid 2px var(--LightMain2);
+  color: light-dark(var(--LightYellow1), var(--DarkYellow1));
+  background-color: light-dark(var(--LightMain2), var(--DarkMain2));
+  border: solid 2px light-dark(var(--LightMain2), var(--DarkMain2));
+  text-decoration: none;
+  padding: 10px;
 }
-.webring-section a:hover {
-    color: orangered;
-    border-bottom: 0.125rem dotted orangered;
+nav a:hover {
+  color: orangered;
 }
+
     </style>
   </head>
   <body>
@@ -339,7 +310,7 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
                 </tr>
                 <tr>
                   <td>Language</td>
-		             <td>🇷🇺 / 🇬🇧</td>
+		              <td>🇷🇺 / 🇬🇧</td>
                 </tr>
                 <tr>
                   <td>Pronouns</td>
@@ -351,7 +322,7 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
                 </tr>
               </table>
             </div>
-            <ul class="social-list">
+            <ul>
               <li>
                 <a href="https://github.com/den0620">
                   <img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3Csvg%20fill%3D%22%23fff%22%20width%3D%22800px%22%20height%3D%22800px%22%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M16%200.396c-8.839%200-16%207.167-16%2016%200%207.073%204.584%2013.068%2010.937%2015.183%200.803%200.151%201.093-0.344%201.093-0.772%200-0.38-0.009-1.385-0.015-2.719-4.453%200.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989%200.115-0.968%200.115-0.968%201.604%200.109%202.448%201.645%202.448%201.645%201.427%202.448%203.744%201.74%204.661%201.328%200.14-1.031%200.557-1.74%201.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907%200-1.751%200.62-3.177%201.645-4.297-0.177-0.401-0.719-2.031%200.141-4.235%200%200%201.339-0.427%204.4%201.641%201.281-0.355%202.641-0.532%204-0.541%201.36%200.009%202.719%200.187%204%200.541%203.043-2.068%204.381-1.641%204.381-1.641%200.859%202.204%200.317%203.833%200.161%204.235%201.015%201.12%201.635%202.547%201.635%204.297%200%206.145-3.74%207.5-7.296%207.891%200.556%200.479%201.077%201.464%201.077%202.959%200%202.14-0.020%203.864-0.020%204.385%200%200.416%200.28%200.916%201.104%200.755%206.4-2.093%2010.979-8.093%2010.979-15.156%200-8.833-7.161-16-16-16z%22%2F%3E%0A%3C%2Fsvg%3E" alt="GitHub">
@@ -388,11 +359,10 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
 
         <hr>
         <div style="padding: 0.5rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch;">
-          
-          <section class="pattern-grad" style="margin: 0.5rem; background-color: light-dark(var(--LightGreen1), var(--DarkGreen1)); border: dashed 0.20rem light-dark(var(--LightGreen2), var(--DarkGreen2)); width: auto; flex-grow: 1;">
+          <section style="margin: 0.5rem; background-color: light-dark(var(--LightGreen1), var(--DarkGreen1)); border: dashed 0.20rem light-dark(var(--LightGreen2), var(--DarkGreen2)); width: auto; flex-grow: 1;">
             <div style="width: 100%; height: 100%;">
 
-              <center><p style="margin: 0; padding-top: 0.25em; background-color: light-dark(var(--LightGreen3), var(--DarkGreen3));">ADVANCEMENTS</p></center>
+              <center><p style="margin: 0; background-color: light-dark(var(--LightGreen3), var(--DarkGreen3));">ADVANCEMENTS</p></center>
 
               <table style="width: 100%;">
                 <tr>
@@ -419,11 +389,10 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
 
             </div>
           </section>
-
-          <section class="pattern-hat" style="margin: 0.5rem; background-color: light-dark(var(--LightBlue1), var(--DarkBlue1)); border: dashed 0.20rem light-dark(var(--LightBlue2), var(--DarkBlue2)); width: auto; flex-grow: 1">
+          <section style="margin: 0.5rem; background-color: light-dark(var(--LightBlue1), var(--DarkBlue1)); border: dashed 0.20rem light-dark(var(--LightBlue2), var(--DarkBlue2)); width: auto; flex-grow: 1">
             <div style="width: 100%; height: 100%;">
 
-              <center><p style="margin: 0; padding-top: 0.25em; background-color: light-dark(var(--LightBlue3), var(--DarkBlue3));">INTERESTS</p></center>
+              <center><p style="margin: 0; background-color: light-dark(var(--LightBlue3), var(--DarkBlue3));">INTERESTS</p></center>
 
               <div style="display: flex; flex-direction: row;">
                 <table style="width: 100%;">
@@ -480,15 +449,15 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
             <table style="width: 100%; height: 100%;">
               <tr>
                 <td>Instructions</td>
-                <td>x86-64-v3 / OGL 4.6 Vulkan 1.4</td>
+                <td>x86-64-v4 / CC 8.6</td>
               </tr>
               <tr>
                 <td>Software</td>
-                <td>EOS + Niri + Noctalia</td>
+                <td>EOS + Niri + Sway (utils)</td>
               </tr>
               <tr>
                 <td>Chassis</td>
-                <td>Non-Optimus Laptop</td>
+                <td>Optimus Vivobook</td>
               </tr>
             </table>
 
@@ -496,26 +465,16 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
         </section>
         <hr>
         <footer>
-          <div class="badges">
-	    <a href="#" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/ninefidukto.png" title="ninefid" alt="ninefid"></a>
-	    <a href="https://asyasocute.online" target="_blank" style="image-rendering:pixelated"><img src="https://asyasocute.online/badges/cowl.png" title="asya" alt="asya"></a>
-	    <a href="https://tei.su/" target="_blank" style="image-rendering:pixelated"><img src="https://tei.su/88x31/teidesu.png" title="alina" alt="alina"></a>
-            <a href="https://otomir23.me/" target="_blank" style="image-rendering:pixelated"><img src="https://otomir23.me/88x31.png" title="damir" alt="damir"></a>
-	    <a href="https://glutesha.me" target="_blank" style="image-rendering:pixelated"><img src="https://glutesha.me/badges/interactive/glutesha.png" title="glutesha" alt="glutesha"></a>
-	    <a href="https://senko.dev" target="_blank" style="image-rendering:pixelated"><img src="https://senko.dev/banners/senko.gif" title="senko" alt="senkodev"></a>
-	    <a href="https://www.radiohead.com/library/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/radiohead.png" title="radiohead" alt="radiohead"></a>
-	    <a href="https://www.pixiesmusic.com/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/pixies-custom.gif" title="pixies" alt="pixies"></a>
-	    <a href="https://flipper.net/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/flipper.gif" title="flipper" alt="flipper"></a>
-	    <a href="https://www.eidosmontreal.com/games/deus-ex-mankind-divided/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/deusex.png" title="deus ex"  alt="deus ex"></a>
-          </div>
+          <p>This website is still in polishing</p>
         </footer>
-        <section class="webring-section">
-            <a href="#">&lt;&lt; PREV</a>
-            <a href="#">WEBRING</a>
-            <a href="#">NEXT &gt;&gt;</a>
-        </section>
       </main>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#">[ &lt;&lt; PREV]</a></li>
+        <li><a href="#">[WEBRING]</a></li>
+        <li><a href="#">[NEXT &gt;&gt; ]</a></li>
+      </ul>
+    </nav>  
   </body>
 </html>
-
