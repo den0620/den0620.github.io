@@ -216,29 +216,124 @@ footer {
   align-items: center;
   overflow: hidden;
   gap: 1rem;
-  padding: 1.5rem 1rem;
+  padding: 1rem 0; /* Adjusted padding for inventory */
 }
 
-footer a {
-  transition: all 0.15s ease;
+/* === DEUS EX INVENTORY SYSTEM === */
+.dx-inventory {
+    /* Base Unit Size (approx 32px) */
+    --u: 2rem; 
+    
+    /* Responsive Column Count Logic */
+    --cols: 12; /* Default Desktop (Fits 4 badges wide) */
+
+    /* DEUS EX COLORS (Hardcoded Dark Mode) */
+    --dx-bg: #111111;
+    --dx-grid: #333333;
+    --dx-border: #667777;
+    --dx-highlight: #ffffff;
+    --dx-tooltip-bg: #000000;
+    --dx-tooltip-text: #00ff00;
+
+    display: grid;
+    /* Grid Definition */
+    grid-template-columns: repeat(var(--cols), var(--u));
+    grid-auto-rows: var(--u); /* Fixed height rows */
+    grid-auto-flow: dense;    /* The Tetris Packer */
+    
+    /* Styling */
+    background-color: var(--dx-bg);
+    border: 2px solid var(--dx-border);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: fit-content; /* Shrink to fit columns */
+    margin: 0 auto;     /* Center */
+    
+    /* The Background Grid Lines */
+    background-image: 
+        linear-gradient(var(--dx-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--dx-grid) 1px, transparent 1px);
+    background-size: var(--u) var(--u);
+    background-position: -1px -1px;
 }
 
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
+/* RESPONSIVE BREAKPOINTS for Inventory */
+@media (max-width: 30rem) {
+    .dx-inventory { --cols: 9; } /* 3 Badges wide */
 }
-.badges a:hover {
-  transform: scale(1.5);
-  z-index: 10;
-  position: relative;
+@media (max-width: 22rem) {
+    .dx-inventory { --cols: 6; } /* 2 Badges wide */
 }
-.badges img {
-  width: 7rem; 
-  height: auto;
-  image-rendering: pixelated;
+@media (max-width: 16rem) {
+    .dx-inventory { --cols: 3; } /* 1 Badge wide */
 }
+
+/* ITEMS */
+.dx-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid #444;
+    background: #000;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.1s;
+}
+.dx-item:hover {
+    border-color: var(--dx-highlight);
+    z-index: 5;
+    filter: brightness(1.2);
+}
+.dx-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Stretch to fit exact grid units */
+    image-rendering: pixelated; /* Crisp pixels */
+}
+
+/* SIZES */
+.size-badge { grid-column: span 3; grid-row: span 1; } /* 3x1 (Badge) */
+.size-1x1   { grid-column: span 1; grid-row: span 1; } /* 1x1 (Small) */
+.size-2x1   { grid-column: span 2; grid-row: span 1; } /* 2x1 (Wide) */
+.size-1x2   { grid-column: span 1; grid-row: span 2; } /* 1x2 (Tall) */
+.size-2x2   { grid-column: span 2; grid-row: span 2; } /* 2x2 (Big) */
+
+/* TOOLTIPS */
+.dx-item[data-title]:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    white-space: nowrap;
+    background: var(--dx-tooltip-bg);
+    border: 1px solid var(--dx-tooltip-text);
+    color: var(--dx-tooltip-text);
+    padding: 2px 4px;
+    font-size: 10px;
+    font-family: monospace;
+    pointer-events: none;
+    z-index: 20;
+    box-shadow: 2px 2px 0 #000;
+}
+
+/* FILLER ITEM STYLES */
+.fill-ammo {
+    color: #555;
+    font-size: 0.6rem;
+    font-family: monospace;
+    background: radial-gradient(#222, #000);
+}
+.fill-bio {
+    background: #002200;
+    border: 1px solid #005500;
+    color: #00ff00;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+/* === END DEUS EX STYLES === */
 
 .webring-section {
     background-color: light-dark(var(--LightMain2), var(--DarkMain2)); 
@@ -333,7 +428,7 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
                 </tr>
                 <tr>
                   <td>Language</td>
-		             <td>🇷🇺 / 🇬🇧</td>
+		            <td>🇷🇺 / 🇬🇧</td>
                 </tr>
                 <tr>
                   <td>Pronouns</td>
@@ -485,24 +580,84 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
                 <td>Non-Optimus Laptop</td>
               </tr>
             </table>
-
           </div>
         </section>
         <hr>
+        
         <footer>
-          <div class="badges">
-	    <a href="#" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/ninefidukto.png" title="ninefid" alt="ninefid"></a>
-	    <a href="https://asyasocute.online" target="_blank" style="image-rendering:pixelated"><img src="https://asyasocute.online/badges/cowl.png" title="asya" alt="asya"></a>
-	    <a href="https://tei.su/" target="_blank" style="image-rendering:pixelated"><img src="https://tei.su/88x31/teidesu.png" title="alina" alt="alina"></a>
-            <a href="https://otomir23.me/" target="_blank" style="image-rendering:pixelated"><img src="https://otomir23.me/88x31.png" title="damir" alt="damir"></a>
-	    <a href="https://glutesha.me" target="_blank" style="image-rendering:pixelated"><img src="https://glutesha.me/badges/interactive/glutesha.png" title="glutesha" alt="glutesha"></a>
-	    <a href="https://senko.dev" target="_blank" style="image-rendering:pixelated"><img src="https://senko.dev/banners/senko.gif" title="senko" alt="senkodev"></a>
-	    <a href="https://www.radiohead.com/library/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/radiohead.png" title="radiohead" alt="radiohead"></a>
-	    <a href="https://www.pixiesmusic.com/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/pixies-custom.gif" title="pixies" alt="pixies"></a>
-	    <a href="https://flipper.net/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/flipper.gif" title="flipper" alt="flipper"></a>
-	    <a href="https://www.eidosmontreal.com/games/deus-ex-mankind-divided/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/deusex.png" title="deus ex"  alt="deus ex"></a>
+          <div class="dx-inventory">
+            
+            <!-- Ninefid Badge -->
+            <a href="#" class="dx-item size-badge" title="ninefid">
+                <img src="assets/antipixel/ninefidukto.png" alt="ninefid">
+            </a>
+
+            <!-- Filler: 10mm Ammo -->
+            <div class="dx-item size-1x1 fill-ammo" title="10mm">10mm</div>
+
+            <!-- Asya Badge -->
+            <a href="https://asyasocute.online" target="_blank" class="dx-item size-badge" title="asya">
+                <img src="https://asyasocute.online/badges/cowl.png" alt="asya">
+            </a>
+            
+            <!-- Filler: Lockpick (2x1) -->
+            <div class="dx-item size-2x1 fill-ammo" title="Lockpick">LOCKPICK</div>
+
+            <!-- Alina Badge -->
+            <a href="https://tei.su/" target="_blank" class="dx-item size-badge" title="alina">
+                <img src="https://tei.su/88x31/teidesu.png" alt="alina">
+            </a>
+
+            <!-- Otomir Badge -->
+            <a href="https://otomir23.me/" target="_blank" class="dx-item size-badge" title="damir">
+                <img src="https://otomir23.me/88x31.png" alt="otomir">
+            </a>
+
+            <!-- Filler: Bio Cells -->
+            <div class="dx-item size-1x1 fill-bio" title="Bio Cell">BIO</div>
+
+            <!-- Glutesha Badge -->
+            <a href="https://glutesha.me" target="_blank" class="dx-item size-badge" title="glutesha">
+                <img src="https://glutesha.me/badges/interactive/glutesha.png" alt="glutesha">
+            </a>
+
+            <!-- Senko Badge -->
+            <a href="https://senko.dev" target="_blank" class="dx-item size-badge" title="senko">
+                <img src="https://senko.dev/banners/senko.gif" alt="senkodev">
+            </a>
+
+            <!-- Filler: Prod Charger (1x1) -->
+            <div class="dx-item size-1x1 fill-ammo" title="Prod">PRD</div>
+            
+            <!-- Radiohead Badge -->
+            <a href="https://www.radiohead.com/library/" target="_blank" class="dx-item size-badge" title="Radiohead">
+                <img src="assets/antipixel/radiohead.png" alt="radiohead">
+            </a>
+
+            <!-- Pixies Badge -->
+            <a href="https://www.pixiesmusic.com/" target="_blank" class="dx-item size-badge" title="Pixies">
+                <img src="assets/antipixel/pixies-custom.gif" alt="pixies">
+            </a>
+
+            <!-- Flipper Badge -->
+            <a href="https://flipper.net/" target="_blank" class="dx-item size-badge" title="Flipper">
+                <img src="assets/antipixel/flipper.gif" alt="flipper">
+            </a>
+
+            <!-- Filler: Multitool (2x1) -->
+            <div class="dx-item size-2x1 fill-ammo" title="Multitool">MULTI</div>
+
+            <!-- Deus Ex Badge -->
+            <a href="https://www.eidosmontreal.com/games/deus-ex-mankind-divided/" target="_blank" class="dx-item size-badge" title="Deus Ex">
+                <img src="assets/antipixel/deusex.png" alt="deus ex">
+            </a>
+            
+            <!-- Filler: Empty slots to make grid look filled -->
+            <div class="dx-item size-1x1 fill-ammo" title="Flare">FLR</div>
+
           </div>
         </footer>
+
         <section class="webring-section">
             <a href="#">&lt;&lt; PREV</a>
             <a href="#">WEBRING</a>
