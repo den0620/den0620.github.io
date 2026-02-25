@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>ninefid</title>
     <link rel="icon" type="image/avif" href="assets/pfp.png">
@@ -36,6 +37,9 @@
   --LightPink2: mediumorchid;
   --LightPink3: palevioletred;
 
+  --LightRed1: Salmon;
+  --LightRed2: IndianRed;
+  --LightRed3: orangeRed;
 
   --DarkMain1: #7F7366;
   --DarkMain2: black;
@@ -57,6 +61,10 @@
   --DarkPink1: mediumorchid;
   --DarkPink2: purple;
   --DarkPink3: palevioletred;
+
+  --DarkRed1: indianred;
+  --DarkRed2: darkred;
+  --DarkRed3: crimson;
 }
 
 @font-face {
@@ -97,6 +105,44 @@ body::before {
   opacity: 0.15;
   background-image: radial-gradient(black 0.20rem, transparent 0);
   background-size: 0.5rem 0.5rem; /* Tiny pixel grid */
+}
+
+.background-doodles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2; /* behind the pixel grid */
+}
+
+.doodle {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  transform: rotate(5deg);
+  filter: grayscale(100%) contrast(150%);
+}
+
+.project-item {
+  text-align: center;
+}
+
+.project-item a {
+  font-weight: bold;
+  text-decoration: none;
+  color: light-dark(var(--LightMain3), var(--DarkMain3));
+}
+
+.project-item a:hover {
+  text-decoration: underline dotted orangered;
+}
+
+.project-lang {
+  font-size: 0.9rem;
+}
+
+.project-stars {
+  font-size: 0.8rem;
 }
 
 main {
@@ -167,7 +213,6 @@ tr td a {
   color: light-dark(DarkSlateBlue, LightSteelBlue);
 }
 
-/* Social Icons List */
 .social-list {
   list-style-type: none;
   display: flex !important;
@@ -214,7 +259,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*overflow: hidden;*/
   overflow: visible;
   gap: 1rem;
   padding: 1.5rem 1rem;
@@ -264,6 +308,14 @@ footer a {
     </style>
   </head>
   <body>
+    <div class="background-doodles">
+      <div class="doodle" style="top:8%; left:3%; width:140px; height:140px; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'40\' fill=\'black\' /%3E%3C/svg%3E');"></div>
+      <div class="doodle" style="top:65%; right:2%; width:200px; height:200px; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Cpath fill=\'black\' d=\'M20,50 Q35,20 50,50 T80,50\' stroke=\'black\' stroke-width=\'8\' fill=\'none\' /%3E%3C/svg%3E'); transform: rotate(-10deg);"></div>
+      <div class="doodle" style="bottom:10%; left:12%; width:120px; height:120px; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Cpolygon points=\'50,5 61,40 98,40 68,57 79,92 50,72 21,92 32,57 2,40 39,40\' fill=\'black\' /%3E%3C/svg%3E');"></div>
+      <div class="doodle" style="top:40%; left:85%; width:160px; height:160px; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect x=\'20\' y=\'20\' width=\'60\' height=\'60\' fill=\'black\' /%3E%3C/svg%3E'); transform: rotate(15deg);"></div>
+      <div class="doodle" style="top:20%; left:70%; width:100px; height:100px; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Cpath fill=\'black\' d=\'M30,70 L50,20 L70,70 Z\' /%3E%3C/svg%3E');"></div>
+    </div>
+
     <div>
       <main>
         <section style="background-color: light-dark(var(--LightYellow1), var(--DarkYellow1)); border: dashed 0.20rem light-dark(var(--LightYellow2), var(--DarkYellow2));">
@@ -334,7 +386,7 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
                 </tr>
                 <tr>
                   <td>Language</td>
-		             <td>🇷🇺 / 🇬🇧</td>
+		            <td>🇷🇺 / 🇬🇧</td>
                 </tr>
                 <tr>
                   <td>Pronouns</td>
@@ -496,19 +548,28 @@ keb/6yxO/usuLvdaZ7B+qkbbwcAAX+m+pwBz8pZ9IzsCA30dMA==" alt="Profile Picture" styl
 
           </div>
         </section>
+
+        <hr>
+        <section style="background-color: light-dark(var(--LightRed1), var(--DarkRed1)); border: dashed 0.20rem light-dark(var(--LightRed2), var(--DarkRed2));">
+          <div style="width:100%;">
+            <center><p style="margin:0; padding-top:0.25em; background-color: light-dark(var(--LightRed3), var(--DarkRed3));">PROJECTS</p></center>
+            <object data="https://githubwidget.ninefid.uk.to/?username=den0620" type="image/svg+xml" width="100%" height="auto"></object>
+          </div>
+        </section>
+
         <hr>
         <footer>
           <div class="badges">
-	    <a href="#" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/ninefidukto.png" title="ninefid" alt="ninefid"></a>
-	    <a href="https://asyasocute.online" target="_blank" style="image-rendering:pixelated"><img src="https://asyasocute.online/badges/cowl.png" title="asya" alt="asya"></a>
-	    <a href="https://tei.su/" target="_blank" style="image-rendering:pixelated"><img src="https://tei.su/88x31/teidesu.png" title="alina" alt="alina"></a>
+	   <a href="#" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/ninefidukto.png" title="ninefid" alt="ninefid"></a>
+	   <a href="https://asyasocute.online" target="_blank" style="image-rendering:pixelated"><img src="https://asyasocute.online/badges/cowl.png" title="asya" alt="asya"></a>
+	   <a href="https://tei.su/" target="_blank" style="image-rendering:pixelated"><img src="https://tei.su/88x31/teidesu.png" title="alina" alt="alina"></a>
             <a href="https://otomir23.me/" target="_blank" style="image-rendering:pixelated"><img src="https://otomir23.me/88x31.png" title="damir" alt="damir"></a>
-	    <a href="https://glutesha.me" target="_blank" style="image-rendering:pixelated"><img src="https://glutesha.me/badges/interactive/glutesha.png" title="glutesha" alt="glutesha"></a>
-	    <a href="https://senko.dev" target="_blank" style="image-rendering:pixelated"><img src="https://senko.dev/banners/senko.gif" title="senko" alt="senkodev"></a>
-	    <a href="https://www.radiohead.com/library/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/radiohead.png" title="radiohead" alt="radiohead"></a>
-	    <a href="https://www.pixiesmusic.com/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/pixies-custom.gif" title="pixies" alt="pixies"></a>
-	    <a href="https://flipper.net/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/flipper.gif" title="flipper" alt="flipper"></a>
-	    <a href="https://www.eidosmontreal.com/games/deus-ex-mankind-divided/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/deusex.png" title="deus ex"  alt="deus ex"></a>
+	   <a href="https://glutesha.me" target="_blank" style="image-rendering:pixelated"><img src="https://glutesha.me/badges/interactive/glutesha.png" title="glutesha" alt="glutesha"></a>
+	   <a href="https://senko.dev" target="_blank" style="image-rendering:pixelated"><img src="https://senko.dev/banners/senko.gif" title="senko" alt="senkodev"></a>
+	   <a href="https://www.radiohead.com/library/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/radiohead.png" title="radiohead" alt="radiohead"></a>
+	   <a href="https://www.pixiesmusic.com/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/pixies-custom.gif" title="pixies" alt="pixies"></a>
+	   <a href="https://flipper.net/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/flipper.gif" title="flipper" alt="flipper"></a>
+	   <a href="https://www.eidosmontreal.com/games/deus-ex-mankind-divided/" target="_blank" style="image-rendering:pixelated"><img src="assets/antipixel/deusex.png" title="deus ex"  alt="deus ex"></a>
           </div>
         </footer>
         <section class="webring-section">
